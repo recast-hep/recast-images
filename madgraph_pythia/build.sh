@@ -5,5 +5,5 @@ TAG="recast/madgraph-pythia:v$MADGRAPH_VERSION"
 echo "$DOCKER_PASSWORD" | docker login --username $DOCKER_USERNAME --password-stdin
 echo "MADGRAPH_VERSION is ${MADGRAPH_VERSION}"
 docker build -t $TAG --build-arg MADGRAPH_VERSION=$MADGRAPH_VERSION $DIR
-#docker push $TAG
+docker push $TAG
 docker images

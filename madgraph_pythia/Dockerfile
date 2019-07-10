@@ -9,4 +9,5 @@ RUN echo "Madgraph version is ${MADGRAPH_VERSION}"
 RUN ["/bin/bash", "-c", "wget https://launchpad.net/mg5amcnlo/${MADGRAPH_VERSION:0:1}.0/${MADGRAPH_VERSION:0:3}.x/+download/MG5_aMC_v${MADGRAPH_VERSION}.tar.gz"]
 RUN ["/bin/bash", "-c", "tar -xzf MG5_aMC_v${MADGRAPH_VERSION}.tar.gz; rm MG5_aMC_v${MADGRAPH_VERSION}.tar.gz; mv MG5_aMC_v${MADGRAPH_VERSION:0:1}_${MADGRAPH_VERSION:2:1}_${MADGRAPH_VERSION:4:1} madgraph"]
 RUN cd madgraph; echo "install pythia8" > install.dat; ./bin/mg5_aMC install.dat; rm install.dat
+RUN echo "export PYTHONPATH=/code/madgraph/HEPTools/lhapdf6/lib/python2.7/site-packages" >> ~/.bashrc; echo "export LD_LIBRARY_PATH=/code/madgraph/HEPTools/lhapdf6/lib" >> ~/.bashrc
 ADD steer_madgraph.py .
