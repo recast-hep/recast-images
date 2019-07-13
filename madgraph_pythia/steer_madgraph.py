@@ -19,7 +19,7 @@ def edit_proc_card(proc_card_path, param_card_path, run_card_path, n_events):
 
 
 def run_madgraph(proc_card_path, output_path, ufotar, param_card_path=None, run_card_path=None, n_events=None):
-    if ufotar is not None:
+    if ufotar is not None and ufotar != "default":
         if '/' in ufotar:
             ufo_name, ufo_ext = os.path.splitext(os.path.basename(ufotar))
         else:
