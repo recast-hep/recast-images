@@ -37,11 +37,11 @@ def run_madgraph(proc_card_path, output_path, ufotar, param_card_path=None, run_
     edit_proc_card(proc_card_copy_path, param_card_path,
                    run_card_path, n_events)
     subprocess.call(['/code/madgraph/bin/mg5_aMC', proc_card_copy_path])
-    run_dir = os.path.join(os.getcwd(), 'PROC_sm_0', 'Events', 'run_1')
+    run_dir = os.path.join(os.getcwd(), 'PROC_sm_0', 'Events', 'run_01')
     subprocess.call(['gunzip', os.path.join(
         run_dir, 'tag_1_pythia8_events.hepmc.gz')])
-    subprocess.call(['sudo', 'cp', os.path.join(
-        run_dir, 'tag_1_pythia8_events.hepmc'), output_path])
+    subprocess.call('cp {} {}'.format(os.path.join(
+        run_dir, 'tag_1_pythia8_events.hepmc'), output_path), shell=True)
 
 
 def main():
