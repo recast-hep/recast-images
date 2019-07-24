@@ -7,7 +7,7 @@ import subprocess
 def edit_proc_card(proc_card_path, param_card_path, run_card_path, n_events):
     with open(proc_card_path, 'a') as f:
         # Turn pythia on for particle showering/hadronization.
-        f.write('1\n0\n')
+        f.write('shower=Pythia8\ndone\n')
         # Read from the given cards and set the number of events.
         if param_card_path is not None and param_card_path != "default":
             f.write('{}\n'.format(param_card_path))
